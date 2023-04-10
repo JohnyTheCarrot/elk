@@ -5,7 +5,7 @@ export type FontSize = `${number}px`
 // Temporary type for backward compatibility
 export type OldFontSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
-export type ColorMode = 'light' | 'dark' | 'system'
+export type ColorMode = 'light' | 'dark' | 'custom' | 'system'
 
 export interface PreferencesSettings {
   hideAltIndicatorOnPosts: boolean

@@ -4,6 +4,8 @@ const { t } = useI18n()
 useHead({
   title: () => `${t('settings.interface.label')} | ${t('nav.settings')}`,
 })
+
+const colorMode = useColorMode()
 </script>
 
 <template>
@@ -20,15 +22,21 @@ useHead({
       </label>
       <div space-y-2>
         <p font-medium>
+          {{ $t('settings.interface.theme_color') }}
+        </p>
+        <SettingsThemeColors />
+      </div>
+      <div space-y-2>
+        <p font-medium>
           {{ $t('settings.interface.color_mode') }}
         </p>
         <SettingsColorMode />
       </div>
-      <div space-y-2>
+      <div v-if="colorMode.preference === 'custom'" space-y-2>
         <p font-medium>
-          {{ $t('settings.interface.theme_color') }}
+          {{ $t('settings.interface.custom_mode') }}
         </p>
-        <SettingsThemeColors />
+        <SettingsCustomColors />
       </div>
     </div>
   </MainContent>
